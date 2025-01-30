@@ -1,8 +1,9 @@
 services:
-  rocm-app:
-    build: 
+  bitsandbytes-rocm:
+    build:
       context: .
       dockerfile: Dockerfile
+    container_name: bitsandbytes-rocm
     devices:
       - "/dev/kfd:/dev/kfd"
       - "/dev/dri:/dev/dri"
