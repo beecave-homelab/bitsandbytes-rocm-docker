@@ -17,4 +17,6 @@ services:
       - ./:/workspace
     shm_size: '4gb'
     privileged: true
+    tty: true
+    stdin_open: true
     command: "/bin/bash"
