@@ -3,7 +3,6 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile
-    runtime: rocm
     devices:
       - "/dev/kfd:/dev/kfd"
       - "/dev/dri:/dev/dri"
