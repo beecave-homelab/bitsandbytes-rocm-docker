@@ -1,0 +1,21 @@
+services:
+  rocm-app:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    runtime: rocm
+    devices:
+      - "/dev/kfd:/dev/kfd"
+      - "/dev/dri:/dev/dri"
+    group_add:
+      - video
+      - render
+    environment:
+      - HSA_OVERRIDE_GFX_VERSION=10.3.0
+      - HCC_AMDGPU_TARGET=gfx1030
+      - HIP_VISIBLE_DEVICES=0
+    volumes:
+      - ./:/workspace
+    shm_size: '4gb'
+    privileged: true
+    command: "/bin/bash"
